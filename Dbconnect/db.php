@@ -22,5 +22,28 @@ class Database {
             die("Databaseconnectie mislukt: " . $e->getMessage());
         }
     }
+
+    
+    public function toevoegenData($Naam, $Leeftijd, $Gender) {
+        try {
+            
+            $sql = "INSERT INTO Namen (Naam, Leeftijd, Gender) VALUES (:Naam, :Leeftijd, :Gender)";
+
+          
+            $stmt = $this->verbinding->prepare($sql);
+
+           
+            $stmt->bindParam(':Naam', $Naam);
+            $stmt->bindParam(':Leeftijd', $Leeftijd);
+            $stmt->bindParam(':Gender', $Gender);
+
+            
+            $stmt->execute();
+
+            echo "Data succesvol toegevoegd aan de tabel!";
+        } catch (PDOException $e) {
+            die("Toevoegen van data mislukt: " . $e->getMessage());
+        }
+    }
 }
 ?>
