@@ -60,7 +60,7 @@ class Database {
         try {
             $sql = "DELETE FROM Namen WHERE id = :id";
             $stmt = $this->verbinding->prepare($sql);
-            $stmt->bindParam(':id', $id, PDO::PARAM_STR); // Explicitly specify the parameter type as a string
+            $stmt->bindParam(':id', $id, PDO::PARAM_STR); 
             $stmt->execute();
         } catch (PDOException $e) {
             die("Deleting data failed: " . $e->getMessage());
