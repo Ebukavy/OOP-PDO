@@ -8,7 +8,6 @@ if (isset($_GET['id'])) {
 
 
     if ($data !== false) {
-        // Display form for editing
         echo "<form action='update.php' method='post'>";
         echo "<input type='hidden' name='id' value='{$id}'>";
         echo "Naam: <input type='text' name='Naam' value='{$data['Naam']}'><br>";
